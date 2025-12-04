@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI创意文案生成工具</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <input type="hidden" id="session-id" value="">
+        <h1>AI创意文案生成工具</h1>
+        
+        <!-- 用户选项 -->
+        <div id="user-options">
+            <label for="style">风格：</label>
+            <select id="style">
+                <option value="治愈风">治愈风</option>
+                <option value="怀旧风">怀旧风</option>
+                <option value="热血励志风">热血励志风</option>
+                <option value="伤感共情风">伤感共情风</option>
+                <option value="俏皮网感风">俏皮网感风</option>
+                <option value="硬核拽酷风">硬核拽酷风</option>
+                <option value="文艺诗意风">文艺诗意风</option>
+                <option value="沙雕搞笑风">沙雕搞笑风</option>
+                <option value="干货科普风">干货科普风</option>
+                <option value="清单攻略风">清单攻略风</option>
+                <option value="避坑指南风">避坑指南风</option>
+                <option value="教程步骤风">教程步骤风</option>
+                <option value="卖点直击风">卖点直击风</option>
+                <option value="场景代入风">场景代入风</option>
+                <option value="福利促销风">福利促销风</option>
+                <option value="证言推荐风">证言推荐风</option>
+                <option value="提问互动风">提问互动风</option>
+                <option value="话题挑战风">话题挑战风</option>
+            </select>
+
+            <label for="space">篇幅：</label>
+            <select id="space">
+                <option value="短平快短句">短平快短句</option>
+                <option value="精炼核心句">精炼核心句</option>
+                <option value="中等篇幅">中等篇幅</option>
+                <option value="详细场景句">详细场景句</option>
+                <option value="长文案叙事">长文案叙事</option>
+                <option value="分段式文案">分段式文案</option>
+                <option value="清单式文案">清单式文案</option>
+                <option value="对话式文案">对话式文案</option>
+                <option value="话题标签组合">话题标签组合</option>
+                <option value="短句排比式">短句排比式</option>
+            </select>
+
+            <label for="emotion">情感：</label>
+            <select id="emotion">
+                <option value="开心">开心</option>
+                <option value="愉悦">愉悦</option>
+                <option value="兴奋">兴奋</option>
+                <option value="激动">激动</option>
+                <option value="狂喜">狂喜</option>
+                <option value="满足">满足</option>
+                <option value="欣慰">欣慰</option>
+                <option value="惬意">惬意</option>
+                <option value="宁静">宁静</option>
+                <option value="平和">平和</option>
+                <option value="淡然">淡然</option>
+                <option value="放松">放松</option>
+                <option value="好奇">好奇</option>
+                <option value="期待">期待</option>
+                <option value="憧憬">憧憬</option>
+                <option value="羞涩">羞涩</option>
+                <option value="腼腆">腼腆</option>
+                <option value="紧张">紧张</option>
+                <option value="焦虑">焦虑</option>
+                <option value="烦躁">烦躁</option>
+                <option value="易怒">易怒</option>
+                <option value="沮丧">沮丧</option>
+                <option value="失落">失落</option>
+                <option value="悲伤">悲伤</option>
+                <option value="难过">难过</option>
+                <option value="痛苦">痛苦</option>
+                <option value="绝望">绝望</option>
+                <option value="委屈">委屈</option>
+                <option value="自责">自责</option>
+                <option value="愧疚">愧疚</option>
+                <option value="愤怒">愤怒</option>
+                <option value="怨恨">怨恨</option>
+                <option value="嫉妒">嫉妒</option>
+                <option value="羡慕">羡慕</option>
+                <option value="孤独">孤独</option>
+                <option value="寂寞">寂寞</option>
+                <option value="思念">思念</option>
+                <option value="牵挂">牵挂</option>
+                <option value="迷茫">迷茫</option>
+                <option value="困惑">困惑</option>
+                <option value="麻木">麻木</option>
+                <option value="疲惫">疲惫</option>
+                <option value="慵懒">慵懒</option>
+                <option value="无聊">无聊</option>
+                <option value="枯燥">枯燥</option>
+                <option value="厌烦">厌烦</option>
+                <option value="反感">反感</option>
+                <option value="恐惧">恐惧</option>
+                <option value="害怕">害怕</option>
+                <option value="惊恐">惊恐</option>
+                <option value="不安">不安</option>
+                <option value="担忧">担忧</option>
+                <option value="忐忑">忐忑</option>
+                <option value="释然">释然</option>
+                <option value="解脱">解脱</option>
+                <option value="自豪">自豪</option>
+                <option value="骄傲">骄傲</option>
+                <option value="自卑">自卑</option>
+                <option value="羞耻">羞耻</option>
+                <option value="尴尬">尴尬</option>
+                <option value="难堪">难堪</option>
+            </select>
+
+            <label for="platform">发布平台：</label>
+            <select id="platform">
+                <option value="微信朋友圈">微信朋友圈</option>
+                <option value="抖音">抖音</option>
+                <option value="微信公众号">微信公众号</option>
+                <option value="小红书">小红书</option>
+                <option value="微博">微博</option>
+                <option value="b站">b站</option>
+            </select>
+
+            <label for="image">上传图片：</label>
+            <input type="file" id="image" accept="image/*">
+
+            <button id="invoke-agent">开始</button>
+        </div>
+
+        <!-- 图片上传
+        <div id="image-upload">
+            
+        </div> -->
+
+        <!-- 文本显示 -->
+        <div id="text-display">
+            <h4>生成文案：</h4>
+            <textarea id="generated-text" rows="10" cols="50" readonly></textarea>
+        </div>
+
+        <!-- 中断操作 -->
+        <div id="interrupt-operations">
+            <!-- <h2>修改建议：</h2> -->
+            <!-- <label for="decision">决策：</label>
+            <select id="decision">
+                <option value="approve">通过</option>
+                <option value="reject">拒绝</option>
+                <option value="edit">编辑</option>
+            </select> -->
+
+            <label for="info">优化建议：</label>
+            <textarea id="info" rows="5" cols="50"></textarea>
+
+            <button id="resume-agent">优化</button>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
