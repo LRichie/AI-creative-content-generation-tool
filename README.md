@@ -29,7 +29,7 @@ AI创意文案生成工具是一款基于先进人工智能技术的文案创作
 
 ## 工作流程图解
 
-![AI创意文案生成工具工作流程图](docs\workflow_structure.png)
+![AI创意文案生成工具工作流程图](docs/workflow_structure.png)
 
 ## 安装部署步骤
 
